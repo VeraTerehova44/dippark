@@ -1,0 +1,26 @@
+.button {
+
+    font-size: 20px;
+    background: #abf3e6;
+    color: #000000;
+    width: 350px;
+    height: 55px;
+    border: #fafbff;
+    border-radius: 10px;
+    transition: all linear .15s;
+    box-shadow: 1px 5px 5px #e6e3e3;
+
+}
+
+.button:active {
+    background: #8bd9ca;
+}
+
+.button:hover {
+
+    width: 355px;
+    height: 57px;
+    color: #065147;
+}
+
+

@@ -1,0 +1,22 @@
+.input {
+
+    font-size: 20px;
+    background: #f7f7f7;
+    color: #000000;
+    width: 400px;
+    height: 65px;
+    border: #fafbff;
+    border-radius: 10px;
+    transition: all linear .15s;
+    box-shadow: 1px 5px 5px #e6e3e3;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.input:active {
+
+}
+
+
