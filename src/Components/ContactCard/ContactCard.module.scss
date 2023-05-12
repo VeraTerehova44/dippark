@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@400;700&family=Bevan&display=swap');
+
+
+.card {
+  width: 25%;
+  height: 500px;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+
+.name, .job{
+  width: 100%;
+  height: 5%;
+  font-size: 16px;
+  font-family: 'Bellota', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ }

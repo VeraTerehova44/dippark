@@ -5,6 +5,9 @@ import classes from "./MainWindow.module.scss";
 import Navbar from "../../Navbar/Navbar";
 import MyButton from "../../UI/MyButton/MyButton";
 import Contact from "../Contact/Contact";
+import Youcan from "../../Youcan/Youcan";
+import Howwork from "../../Howwork/Howwork";
+import Map from "../../Map/Map";
 
 
 
@@ -45,19 +48,14 @@ const MainWindow = () => {
                 </div>
                 <div className={classes.bottom_line}></div>
             </div>
+
+            <Youcan/>
+            <Howwork/>
+            <Map/>
             <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
-            <Contact/>
+
+
+
         </div>
 
 
