@@ -8,6 +8,7 @@ import Contact from "../Contact/Contact";
 import Youcan from "../../Youcan/Youcan";
 import Howwork from "../../Howwork/Howwork";
 import Map from "../../Map/Map";
+import axios from "axios";
 
 
 
@@ -15,6 +16,37 @@ const MainWindow = () => {
     const { scrollYProgress } = useScroll();
     const { scrollY } = useScroll();
     console.log(scrollY);
+
+
+    async function testPost() {
+        const date = {
+            email: "user@67ample.com",
+            password: "12345",
+            confirmPassword: "12345"
+        };
+        await axios.post('https://localhost:7114/api/Account/register',{
+            email: "email9006@xuy",
+            password: "4537",
+            confirmPassword: "4537"
+        })
+            .then((response) => {
+                if(response.status === 201) {
+                    alert("Вы зарегистрированы!!!")
+                    console.log(response)
+                }
+            });
+    }
+
+    async function testPost2() {
+
+        await axios.post('https://localhost:7114/api/Account/login',{
+            email: "email9006@xuy",
+            password: "4537"
+        })
+            .then((response) => {
+                console.log(response)
+            });
+    }
 
 
 
@@ -53,6 +85,8 @@ const MainWindow = () => {
             <Howwork/>
             <Map/>
             <Contact/>
+            <MyButton onClick={testPost} children={"РЕГИСТРАЦИЯ"}/>
+            <MyButton onClick={testPost2} children={"ВХОД"}/>
 
 
 
