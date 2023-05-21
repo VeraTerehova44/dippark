@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@400;700&family=Bevan&display=swap');
+
 .button {
 
+    font-family: 'Bellota', cursive;
     font-size: 20px;
     background: #abf3e6;
     color: #000000;
@@ -12,15 +15,13 @@
 
 }
 
-.button:active {
-    background: #8bd9ca;
+.button:hover {
+    color: #065147;
+    background: #b0efef;
 }
 
-.button:hover {
-
-    width: 355px;
-    height: 57px;
-    color: #065147;
+.button:active {
+    background: #ddfff8;
 }
 
 

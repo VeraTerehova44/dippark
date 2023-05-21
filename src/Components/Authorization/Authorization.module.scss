@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@400;700&family=Bevan&display=swap');
+
 .container {
     width: 500px;
     position: fixed;
-    height: 40%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,21 +16,24 @@
 
 .header {
     font-size: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     cursor: default;
+    font-family: 'Bellota', cursive;
 }
 
 .inputarea {
     width: 75%;
     display: flex;
     justify-content: left;
+    font-family: 'Bellota', cursive;
 }
 
 .register {
-    margin: 10px 20px 40px 20px;
+    margin: 10px 20px 20px 20px;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
