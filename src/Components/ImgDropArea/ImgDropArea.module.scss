@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@400;700&family=Bevan&display=swap');
+
+.container {
+  width: 650px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+  height: 20%;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  font-family: 'Bellota', cursive;
+}
+
+.container_drop {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.drop_area {
+  width: 65%;
+  height: 60%;
+  border: #a6a6a6 dashed 5px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a6a6a6;
+  font-size: 20px;
+  margin-bottom: 30px;
+
+}
+
+.drop_area_done {
+  width: 65%;
+  height: 60%;
+  border: #6ccac7 dashed 5px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a6a6a6;
+  font-size: 20px;
+  background: #effff9;
+  margin-bottom: 30px;
+}
+
