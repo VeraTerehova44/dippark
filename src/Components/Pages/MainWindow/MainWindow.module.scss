@@ -92,7 +92,7 @@ $font-sky: 'Bevan', cursive;
 
 .about {
     width: 100%;
-    height: 870px;
+    height: 727px;
 }
 
 .rectangle{
@@ -145,5 +145,14 @@ $font-sky: 'Bevan', cursive;
     width: 100%;
     height: 10px;
     background: linear-gradient(to right, #6ccac7, #abf3e6);
+}
+
+.statistics {
+    background-color: #95e1d3;
+}
+
+.stat {
+    display: flex;
+    flex-wrap: wrap;
 }
 

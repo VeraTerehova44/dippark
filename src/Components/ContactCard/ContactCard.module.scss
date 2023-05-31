@@ -1,31 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Bellota:wght@400;700&family=Bevan&display=swap');
 
-
 .card {
-  width: 25%;
+  margin: 80px -15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card_item {
+  width: 400px;
   height: 500px;
+  padding: 0 15px;
 }
 
-.container_img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 90%;
+.card_inner {
+  position: relative;
+  background-color: #95e1d3;
 }
 
-.img {
-  width: 100%;
-  height: 90%;
+.card_text {
+
 }
 
-.name, .job{
+.card_inner:hover .card_img {
+  transform: translate3d(-10px, -10px, 0);
+}
+
+.card_inner:hover .card_text {
+  opacity: 1;
+}
+
+.card_inner:hover .card_img img {
+  opacity: .1;
+}
+
+.card_img {
+  background: linear-gradient(to bottom, #08b7a8, #3485d2, #bfade0);
+  transition: transform .2s linear;
+}
+
+.card_img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transition: opacity .1s linear;
+}
+
+.card_text {
   width: 100%;
-  height: 5%;
-  font-size: 16px;
-  font-family: 'Bellota', cursive;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
   text-align: center;
- }
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 2;
+  transform: translate3d(0, -50%, 0);
+  transition: opacity .2s linear;
+}
+
+.card_info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card_name {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+  text-transform: uppercase;
+
+}
+
+.card_job {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 300;
+  color: #999;
+}
+.img {
+
+}
+
+.social_container{
+  display: flex;
+  justify-content: center;
+}
+
+.social_item {
+  width: 55px;
+  height: 55px;
+  padding: 12px 10px;
+  background-color: #abf3e6;
+  border-right: 1px solid #000000;
+  font-size: 35px;
+  text-decoration: none;
+  color: #000000;
+  line-height: 1;
+  transition: background .1s linear, color .1s linear;
+}
+
+.social_item:last-child {
+  border-right: 0;
+}
+
+.social_item:hover {
+  background-color:  #6ccac7;
+  color: #fff;
+  cursor: pointer;
+}
+.name {
+
+}
+
+.job {
+
+}
+
+
+
