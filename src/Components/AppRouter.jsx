@@ -8,6 +8,14 @@ import LayoutAuth from "./Layout/LayoutAuth/LayoutAuth";
 import MyCabinet from "./Pages/MyCabinet";
 import { AuthContext } from "../Context";
 import SAdmin from "./Pages/SAdmin/SAdmin";
+import SAdminGrid from "./Pages/SAdminGrid/SAdminGrid";
+import Profile from "./Pages/PagesForProfile/Profil/Profile";
+import SettingParkZone from "./Pages/SettingParkZone/SettingParkZone";
+import NavbarForProfile from "./NavbarForProfile/NavbarForProfile";
+import Favorite from "./Pages/PagesForProfile/Favorite/Favorite";
+import History from "./Pages/PagesForProfile/History/History";
+import { ThemeContext } from "@emotion/react";
+import ThemeSetting from "./Pages/PagesForProfile/ThemeSetting/ThemeSetting";
 
 const AppRouter = () => {
   const { auth } = useContext(AuthContext);
@@ -15,7 +23,6 @@ const AppRouter = () => {
     <Routes>
       <Route path="/" element={<MainWindow />} />
       <Route path="Error" element={<ErrorPage />} />
-      <Route path="Profile" element={<MyCabinet />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   ) : (
@@ -23,8 +30,16 @@ const AppRouter = () => {
       <Route path="/" element={<MainWindow />} />
       <Route path="Error" element={<ErrorPage />} />
       <Route path="auth" element={<Auth />} />
-      <Route path="Sadmin" element={<SAdmin />} />
+      <Route path="sadmin" element={<SAdmin />} />
+      <Route path="sadmingrid" element={<SAdminGrid />} />
+      <Route path="settingpark" element={<SettingParkZone />} />
       <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="profile" element={<NavbarForProfile />}>
+        <Route index element={<Profile />} />
+        <Route path="favorite" element={<Favorite />} />
+        <Route path="history" element={<History />} />
+        <Route path="theme" element={<ThemeSetting />} />
+      </Route>
     </Routes>
   );
 };

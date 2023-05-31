@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import classes from "./ImgDropArea.module.scss";
 import axios from "axios";
 import MyButton from "../UI/MyButton/MyButton";
+import { Link } from "react-router-dom";
+import MyInput from "../UI/MyInput/MyInput";
 
 const ImgDropArea = ({ text }) => {
   const [drag, setDrag] = useState(false);
@@ -66,6 +68,7 @@ const ImgDropArea = ({ text }) => {
           </div>
         )}
         <MyButton children={"Отправить фото"} onClick={imgPost} />
+        <Link to={"/sadmingrid"}>Следующая</Link>
       </div>
     </div>
   );
