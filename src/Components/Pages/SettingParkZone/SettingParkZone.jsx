@@ -3,6 +3,7 @@ import React from "react";
 import classes from "./SettingParkZone.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import ParkCard from "../../ParkCard/ParkCard";
+import { Link } from "react-router-dom";
 const SettingParkZone = () => {
   const items = useSelector((state) => state.newParkReducer.PARKING);
 
@@ -24,6 +25,7 @@ const SettingParkZone = () => {
               ))
             )}
         </div>
+        <Link to="/parking">К парковкам</Link>
         <div className={classes.control_container}></div>
       </div>
       <div className={classes.bottom_background}></div>

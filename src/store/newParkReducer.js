@@ -1,4 +1,4 @@
-import { ADD_ITEMS, ADD_PARKING, EDIT_BLOCKED } from "./action";
+import { ADD_ITEMS, ADD_PARKING, EDIT_BLOCKED, EDIT_NAME_ITEM } from "./action";
 
 const defaultState = {
   PARKING: [],
@@ -28,6 +28,24 @@ export const newParkReducer = (state = defaultState, action) => {
                   ...item.parkingItems.map((park) =>
                     park.id === action.payload.id
                       ? { ...park, blocked: action.payload.newState }
+                      : park
+                  ),
+                ],
+              }
+            : item
+        ),
+      };
+    case EDIT_NAME_ITEM:
+      return {
+        ...state,
+        PARKING: state.PARKING.map((item) =>
+          item.id === action.payload.parkingId
+            ? {
+                ...item,
+                parkingItems: [
+                  ...item.parkingItems.map((park) =>
+                    park.id === action.payload.id
+                      ? { ...park, name: action.payload.newState }
                       : park
                   ),
                 ],

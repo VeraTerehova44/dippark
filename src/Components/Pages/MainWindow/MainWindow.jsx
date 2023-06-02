@@ -7,10 +7,10 @@ import MyButton from "../../UI/MyButton/MyButton";
 import Contact from "../Contact/Contact";
 import Youcan from "../../Youcan/Youcan";
 import Howwork from "../../Howwork/Howwork";
-import Map from "../../Map/Map";
 import Statistics from "../../Statistics/Statistics";
 
 import classes from "./MainWindow.module.scss";
+import Mmap from "../../Map/Mmap";
 
 const MainWindow = () => {
   const { scrollYProgress } = useScroll();
@@ -91,7 +91,7 @@ const MainWindow = () => {
 
       <Youcan />
       <Howwork />
-      <Map />
+      <Mmap />
       <Contact />
     </div>
   );

@@ -11,7 +11,7 @@ import RequestForm from "../../RequestForm/RequestForm";
 
 const Contact = () => {
   return (
-    <div className={classes.main_section}>
+    <div id="contact" className={classes.main_section}>
       <div className={classes.section}>
         <div className={classes.contact}>
           <div className={classes.header}>Связь с нами</div>

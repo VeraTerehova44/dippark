@@ -16,6 +16,8 @@ import Favorite from "./Pages/PagesForProfile/Favorite/Favorite";
 import History from "./Pages/PagesForProfile/History/History";
 import { ThemeContext } from "@emotion/react";
 import ThemeSetting from "./Pages/PagesForProfile/ThemeSetting/ThemeSetting";
+import Parking from "./Pages/Parking/Parking";
+import ParkIdPage from "./Pages/ParkIdPage/ParkIdPage";
 
 const AppRouter = () => {
   const { auth } = useContext(AuthContext);
@@ -33,7 +35,10 @@ const AppRouter = () => {
       <Route path="sadmin" element={<SAdmin />} />
       <Route path="sadmingrid" element={<SAdminGrid />} />
       <Route path="settingpark" element={<SettingParkZone />} />
+      <Route exact path="parking" element={<Parking />} />
+      <Route exact path="parking/:id" element={<ParkIdPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
+
       <Route path="profile" element={<NavbarForProfile />}>
         <Route index element={<Profile />} />
         <Route path="favorite" element={<Favorite />} />

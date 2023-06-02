@@ -1,30 +1,31 @@
 import React, { useState } from "react";
-import classes from "./ParkCard.module.scss";
-import MyModal from "../UI/MyModal/MyModal";
-import Registration from "../Registration/Registration";
-import { Switch } from "@mui/material";
-import MyButton from "../UI/MyButton/MyButton";
 import { useDispatch } from "react-redux";
-import { editBlocked } from "../../store/action";
+import { editBlocked, editNameItem } from "../../store/action";
+import { Button, Switch, TextField } from "@mui/material";
+
+import MyModal from "../UI/MyModal/MyModal";
+
+import classes from "./ParkCard.module.scss";
 
 const ParkCard = ({ name, itemBlocked, id, parkingId }) => {
   const [open, setOpen] = useState(false);
-  const [check, setCheck] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
+  const [checked, setChecked] = useState(true);
+  const [title, setTitle] = useState(name);
+
+  const handleChange = (e) => {
+    setChecked(e.target.checked);
+    dispatch(editBlocked({ id: id, parkingId: parkingId, newState: checked }));
   };
 
-  const handleClose = () => setOpen(false);
-
-  const brodus = () => {
-    check ? setCheck(false) : setCheck(true);
-    console.log(check);
+  const handleOpen = () => {
+    setOpen(true);
   };
 
   const dispatch = useDispatch();
 
   const save = () => {
-    dispatch(editBlocked({ id: id, parkingId: parkingId, newState: check }));
+    setOpen(false);
+    dispatch(editNameItem({ id: id, parkingId: parkingId, newState: title }));
   };
 
   return (
@@ -33,18 +34,26 @@ const ParkCard = ({ name, itemBlocked, id, parkingId }) => {
       <div
         style={itemBlocked ? { background: "red" } : { background: "green" }}
       >
-        {itemBlocked ? "Доступно" : "Не доступно"}
+        {itemBlocked ? "Не ноступно" : "Доступно"}
       </div>
       <MyModal
         open={open}
-        handleClose={handleClose}
+        handleClose={save}
         className={classes.modal_container}
         children={
           <div className={classes.settings}>
-            А я работаю {name} {id}
+            А я работаю {name} {id} {itemBlocked ? "True" : "False"}
             <div>
-              <Switch defaultChecked onChange={brodus} />
-              <MyButton onClick={save} children="Заблокировать" />
+              <Switch checked={checked} onChange={handleChange} />
+              <TextField
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                label="Изменить название"
+                variant="standard"
+              />
+              <Button onClick={save} variant="text">
+                Сохранить
+              </Button>
             </div>
           </div>
         }
