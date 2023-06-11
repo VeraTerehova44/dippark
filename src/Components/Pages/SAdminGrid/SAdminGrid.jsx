@@ -6,7 +6,7 @@ import classes from "./SAdminGrid.module.scss";
 import { Slider } from "@mui/material";
 import MyButton from "../../UI/MyButton/MyButton";
 import { useDispatch, useSelector } from "react-redux";
-import { addItems } from "../../../store/action";
+import { addColumns, addItems, addRows } from "../../../store/action";
 
 const SAdminGrid = () => {
   const [width, setWidth] = useState(1);
@@ -27,22 +27,19 @@ const SAdminGrid = () => {
         blocked: false,
       });
     }
-    console.log(ParkItems);
     const id = items[items.length - 1].id;
     dispatch(addItems({ items: ParkItems, id: id }));
-  };
-
-  const showCards = () => {
-    console.log(items);
+    dispatch(addRows({ rows: width, id: id }));
+    dispatch(addColumns({ columns: height, id: id }));
   };
 
   return (
-    <div>
+    <div className={classes.main_container}>
       <div className={classes.background}>
         <div className={classes.left_container}>
-          {/*<Link to="/">Назад</Link>*/}
           <div className={classes.sliders}>
             <Slider
+              className={classes.item_slider}
               aria-label="Ширина"
               orientation="vertical"
               defaultValue={1}
@@ -54,6 +51,7 @@ const SAdminGrid = () => {
               max={6}
             />
             <Slider
+              className={classes.item_slider}
               aria-label="Высота"
               orientation="vertical"
               defaultValue={1}
@@ -64,8 +62,8 @@ const SAdminGrid = () => {
               min={1}
               max={10}
             />
-            <MyButton onClick={addParkItems} children={"Сохранить"} />
           </div>
+          <MyButton onClick={addParkItems} children={"Сохранить"} />
         </div>
         <div className={classes.right_container}>
           <div
@@ -82,8 +80,6 @@ const SAdminGrid = () => {
           </div>
         </div>
       </div>
-      <MyButton children="Show" onClick={showCards} />
-      <Link to="/settingpark">Далее</Link>
     </div>
   );
 };

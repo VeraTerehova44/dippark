@@ -18,47 +18,49 @@ const SAdmin = () => {
 
   const dispatch = useDispatch();
   const items = useSelector((state) => state.newParkReducer.PARKING);
+
   const addNewPark = () => {
     const Parking = {
       id: uuidv4(),
+      photo: null,
       name: name,
       address: address,
       description: description,
       parkingItems: [],
+      rows: 0,
+      columns: 0,
     };
     dispatch(addParking(Parking));
-    console.log(Parking);
-  };
-
-  const testParking = () => {
-    console.log(items);
   };
 
   return (
-    <div>
-      <div className={classes.background}>
-        <div className={classes.left_container}>
-          {/*<Link to="/">Назад</Link>*/}
-          <MyButton onClick={addNewPark} children="test" />
-          {/*<Button onClick={testParking}>test2</Button>*/}
-        </div>
-        <div className={classes.right_container}>
-          <ImgDropArea text={"Перетащите фото"} />
-          <MyInput
-            placeholder="Название парковки"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <MyInput
-            placeholder="Адрес парковки"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-          <MyInput
-            placeholder="Описание парковки"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
+    <div className={classes.background}>
+      <div className={classes.container}>
+        <div className={classes.form}>
+          <div className={classes.input}>
+            <MyInput
+              placeholder="Название парковки"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className={classes.input}>
+            <MyInput
+              placeholder="Адрес парковки"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </div>
+          <div className={classes.input}>
+            <MyInput
+              placeholder="Описание парковки"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <div className={classes.input}>
+            <MyButton onClick={addNewPark} children="Save" />
+          </div>
         </div>
       </div>
     </div>

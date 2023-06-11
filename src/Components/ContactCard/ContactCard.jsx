@@ -7,7 +7,7 @@ import { faVk } from "@fortawesome/free-brands-svg-icons";
 import { faTelegram } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
-const ContactCard = ({ name, job, image, link }) => {
+const ContactCard = ({ name, job, image, linkVK, linkTg, linkWt }) => {
   return (
     <div className={classes.card}>
       <div className={classes.card_item}>
@@ -17,13 +17,13 @@ const ContactCard = ({ name, job, image, link }) => {
           </div>
           <div className={classes.card_text}>
             <div className={classes.social_container}>
-              <a className={classes.social_item} href={link}>
+              <a className={classes.social_item} href={linkVK}>
                 <FontAwesomeIcon icon={faVk} />
               </a>
-              <a className={classes.social_item} href={link}>
+              <a className={classes.social_item} href={linkTg}>
                 <FontAwesomeIcon icon={faTelegram} />
               </a>
-              <a className={classes.social_item} href={link}>
+              <a className={classes.social_item} href={linkWt}>
                 <FontAwesomeIcon icon={faWhatsapp} />
               </a>
             </div>

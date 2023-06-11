@@ -1,32 +1,12 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-import classes from "./NavbarForProfile.module.scss";
-const NavbarForProfile = () => {
+import classes from "./LayoutForProfile.module.scss";
+import Navbar from "../Navbar/Navbar";
+const LayoutForProfile = () => {
   return (
     <div className={classes.container}>
-      <div className={classes.container_navbar}>
-        <div className={classes.logo}>
-          <Link to="/" className={classes.link}>
-            {" "}
-            ТУТ ЛОГОТИП{" "}
-          </Link>
-        </div>
-        <div className={classes.navbar}>
-          <Link to="/" className={classes.link}>
-            Главная
-          </Link>
-
-          <Link to="Error" className={classes.link}>
-            Парковки
-          </Link>
-
-          <Link to="Error" className={classes.link}>
-            Связь с нами
-          </Link>
-          <Link className={classes.link}>Выйти</Link>
-        </div>
-      </div>
+      <Navbar />
       <div className={classes.profile_page}>
         <div className={classes.navbar_profile}>
           <Link to="/profile" className={classes.link_profile}>
@@ -50,4 +30,4 @@ const NavbarForProfile = () => {
   );
 };
 
-export default NavbarForProfile;
+export default LayoutForProfile;

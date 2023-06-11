@@ -2,10 +2,10 @@ import React from "react";
 
 import classes from "./MyButton.module.scss";
 
-const MyButton = ({ onClick, children }) => {
+const MyButton = ({ onClick, children, disabled }) => {
   return (
     <div>
-      <button className={classes.button} onClick={onClick}>
+      <button disabled={disabled} className={classes.button} onClick={onClick}>
         {children}
       </button>
     </div>

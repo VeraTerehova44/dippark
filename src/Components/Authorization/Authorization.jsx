@@ -5,37 +5,28 @@ import MyInput from "../UI/MyInput/MyInput";
 import classes from "./Authorization.module.scss";
 
 import ModalWindow from "../Modal/ModalWindow";
-import { AuthContext } from "../../Context";
+
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 const Authorization = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [title, setTitle] = useState();
 
-  const { auth, setAuth } = useContext(AuthContext);
-
-  const login = (event) => {
-    event.preventDefault();
-    setAuth(true);
-    localStorage.setItem("auth", "true");
-  };
-
   async function postLogin() {
     await axios
-      .post("https://localhost:7114/api/Account/login", {
+      .post("https://localhost:7114/api/accounts/login", {
         email: email,
         password: password,
       })
       .then((response) => {
         alert("Успешно!");
-        console.log(response);
-        setAuth(true);
-        localStorage.setItem("auth", "true");
+        localStorage.setItem("role", response.data.role);
+        localStorage.setItem("token", response.data.token);
       })
       .catch((error) => {
         setTitle("Неверный логин или пароль");
-        console.log(error);
       });
   }
 

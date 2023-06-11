@@ -6,6 +6,7 @@ import { Map, Placemark, SearchControl, YMaps } from "@pbe/react-yandex-maps";
 const Mmap = () => {
   return (
     <div className={classes.background}>
+      <div className={classes.title}>С нами уже сотрудничают</div>
       <YMaps>
         <Map
           className={classes.map}

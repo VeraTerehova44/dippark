@@ -16,6 +16,7 @@
 .card_inner {
   position: relative;
   background-color: #95e1d3;
+  border-radius: 8px;
 }
 
 .card_text {
@@ -37,6 +38,7 @@
 .card_img {
   background: linear-gradient(to bottom, #08b7a8, #3485d2, #bfade0);
   transition: transform .2s linear;
+  border-radius: 8px;
 }
 
 .card_img img {
