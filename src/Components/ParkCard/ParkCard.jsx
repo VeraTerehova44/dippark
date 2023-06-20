@@ -1,21 +1,27 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editBlocked, editNameItem } from "../../store/action";
-import { Button, IconButton, Switch, TextField } from "@mui/material";
+import { editBlockedLot, editNameLot } from "../../store/action";
+import { Button, Switch, TextField } from "@mui/material";
 
 import MyModal from "../UI/MyModal/MyModal";
 
 import classes from "./ParkCard.module.scss";
 import success from "../../svg/succes.png";
+import propTypes from "prop-types";
+import axios from "axios";
 
-const ParkCard = ({ name, itemBlocked, id, parkingId, rows }) => {
+const ParkCard = ({ name, itemBlocked, idLot, itemBooked }) => {
   const [open, setOpen] = useState(false);
   const [checked, setChecked] = useState(true);
+  const [checkedForPut, setCheckedForPut] = useState(true);
   const [title, setTitle] = useState(name);
 
   const handleChange = (e) => {
     setChecked(e.target.checked);
-    dispatch(editBlocked({ id: id, parkingId: parkingId, newState: checked }));
+    setCheckedForPut(e.target.checked);
+    if (idLot === undefined) {
+      dispatch(editBlockedLot({ name: name, blocked: checked }));
+    }
   };
 
   const handleOpen = () => {
@@ -24,9 +30,38 @@ const ParkCard = ({ name, itemBlocked, id, parkingId, rows }) => {
 
   const dispatch = useDispatch();
 
+  const token = localStorage.getItem("token");
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  async function putLot() {
+    await axios
+      .put(
+        "https://localhost:7114/api/parkings/lots/",
+        {
+          lotId: idLot,
+          name: title,
+          isBlocked: checkedForPut,
+          isBooked: itemBooked,
+        },
+        config
+      )
+      .then((response) => {
+        alert("Парковочное место обновлено!");
+        window.location.reload();
+      })
+      .catch((e) => alert(e.message));
+  }
+
   const save = () => {
     setOpen(false);
-    dispatch(editNameItem({ id: id, parkingId: parkingId, newState: title }));
+    if (idLot === undefined) {
+      dispatch(editNameLot({ name: name, nName: title }));
+    }
   };
 
   return (
@@ -78,15 +113,26 @@ const ParkCard = ({ name, itemBlocked, id, parkingId, rows }) => {
               </Button>
             </div>
             <div className={classes.input}>
-              <Button onClick={save} variant="text">
-                Сохранить
-              </Button>
+              {idLot ? (
+                <Button onClick={putLot} variant="text">
+                  Сохранить
+                </Button>
+              ) : (
+                <Button onClick={save} variant="text">
+                  Сохранить
+                </Button>
+              )}
             </div>
           </div>
         }
       />
     </div>
   );
+};
+
+ParkCard.propTypes = {
+  name: propTypes.string,
+  itemBlocked: propTypes.bool,
 };
 
 export default ParkCard;

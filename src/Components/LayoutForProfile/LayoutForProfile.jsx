@@ -12,14 +12,11 @@ const LayoutForProfile = () => {
           <Link to="/profile" className={classes.link_profile}>
             Личные данные
           </Link>
-          <Link to="favorite" className={classes.link_profile}>
-            Избранное
-          </Link>
           <Link to="history" className={classes.link_profile}>
             История
           </Link>
-          <Link to="theme" className={classes.link_profile}>
-            Настройка темы
+          <Link to="logout" className={classes.link_profile}>
+            Выйти
           </Link>
         </div>
         <div className={classes.display_profile}>

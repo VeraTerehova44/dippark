@@ -1,13 +1,13 @@
 .background {
   width: 100%;
-  height: 1100px;
+  height: 100vh;
   background: url("../../../svg/smalltopwaves.svg") no-repeat;
   background-size: cover;
 }
 
 .title_section {
   width: 100%;
-  height: 120px;
+  height: 220px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@
   justify-content: center;
   align-items: center;
   font-family: 'Bellota', cursive;
-  font-size: 27px;
+  font-size: 31px;
   text-transform: uppercase;
   text-align: center;
 }
@@ -37,6 +37,9 @@
 .container {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-direction:row;
+  flex-wrap: wrap;
+  overflow: auto;
   padding: 35px;
 }

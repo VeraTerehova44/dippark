@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVk } from "@fortawesome/free-brands-svg-icons";
 import { faTelegram } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import propTypes, { string } from "prop-types";
 
 const ContactCard = ({ name, job, image, linkVK, linkTg, linkWt }) => {
   return (
@@ -36,6 +37,15 @@ const ContactCard = ({ name, job, image, linkVK, linkTg, linkWt }) => {
       </div>
     </div>
   );
+};
+
+ContactCard.propTypes = {
+  name: propTypes.string,
+  job: propTypes.string,
+  image: propTypes.string,
+  linkVK: propTypes.string,
+  linkTg: propTypes.string,
+  linkWt: propTypes.string,
 };
 
 export default ContactCard;

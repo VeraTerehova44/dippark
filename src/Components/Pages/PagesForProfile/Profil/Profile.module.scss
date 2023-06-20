@@ -12,6 +12,25 @@
   align-items: center;
 }
 
+.section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item_form {
+  margin: 10px;
+}
+
 
 
 .information {
@@ -34,9 +53,22 @@
   align-items: center;
 }
 
-.img {
+.settings_img{
   width: 65%;
   height: 65%;
+}
+
+.img {
+  width: 80%;
+  height: 80%;
+  border-radius: 20px;
+}
+
+.form_title {
+  width: 100%;
+  margin: 20px 10px 5px 15px;
+  display: flex;
+  justify-content:left;
 }
 
 .data {
@@ -72,6 +104,7 @@
 
 .title {
   font-size: 15px;
+  margin: 0px 0px 5px 8px;
 
 }
 
@@ -98,11 +131,62 @@
   justify-content: center;
 }
 
+.container_drop {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.drop_zone {
+  width: 80%;
+  height: 30%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.drop_active {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c5f5ec;
+  border-radius: 10px;
+}
+
+.drop {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.container_link {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  margin-top: 20px;
+  text-decoration: none;
+  color: black;
+}
+
 .modal {
   width: 40%;
   height: 70%;
-  background-color: #08b7a8;
+  background-color: #ddf8f0;
   border-radius: 50px;
+}
+
+.form_button {
+  margin-top: 40px;
 }
 
 

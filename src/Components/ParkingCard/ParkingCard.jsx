@@ -1,34 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import propTypes from "prop-types";
+
 import classes from "./ParkingCard.module.scss";
 
-const ParkingCard = ({ name, description, address, id, photo }) => {
-  const [file, setFile] = useState(photo);
-  const [preview, setPreview] = useState();
-  useEffect(() => {
-    if (!file) {
-      setPreview(undefined);
-      return;
-    }
-
-    const objectUrl = URL.createObjectURL(file);
-    setPreview(objectUrl);
-
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [file]);
-
+const ParkingCard = ({ name, address, id, image }) => {
   return (
     <div className={classes.container}>
-      <div
-        className={classes.photo}
-        style={{ backgroundImage: "url(" + preview + ")" }}
-      >
-        <img src={photo} />
+      <div className={classes.photo}>
+        <img
+          className={classes.image}
+          src={`data:image/jpeg;base64,${image}`}
+        />
       </div>
       <div className={classes.section}>
         <div className={classes.description}>
           <div className={classes.description_text}>{name}</div>
-          <div className={classes.description_text}>{description}</div>
           <div className={classes.description_text}>{address}</div>
         </div>
         <div className={classes.section_button}>
@@ -39,6 +26,13 @@ const ParkingCard = ({ name, description, address, id, photo }) => {
       </div>
     </div>
   );
+};
+
+ParkingCard.propTypes = {
+  name: propTypes.string,
+  address: propTypes.string,
+  id: propTypes.number,
+  image: propTypes.string,
 };
 
 export default ParkingCard;

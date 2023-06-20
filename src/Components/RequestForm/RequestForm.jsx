@@ -3,6 +3,7 @@ import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
 
 import classes from "./RequestForm.module.scss";
+import propTypes from "prop-types";
 
 const RequestForm = ({ title }) => {
   return (
@@ -19,6 +20,10 @@ const RequestForm = ({ title }) => {
       </div>
     </div>
   );
+};
+
+RequestForm.propTypes = {
+  title: propTypes.string,
 };
 
 export default RequestForm;

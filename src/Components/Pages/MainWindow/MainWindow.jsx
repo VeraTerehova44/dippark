@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useScroll } from "framer-motion";
 import axios from "axios";
 
@@ -11,11 +11,8 @@ import Howwork from "../../Howwork/Howwork";
 import classes from "./MainWindow.module.scss";
 import Mmap from "../../Map/Mmap";
 import About from "../../About/About";
-import { useLocation } from "react-router-dom";
 
 const MainWindow = () => {
-  const test5647 = () => {};
-
   return (
     <div>
       <div className={classes.background}>
@@ -38,12 +35,10 @@ const MainWindow = () => {
         </div>
       </div>
       <About />
-
       <Youcan />
-      <Howwork />
+      {/*<Howwork />*/}
       <Mmap />
       <Contact />
-      <MyButton onClick={test5647} children={"test"} />
     </div>
   );
 };

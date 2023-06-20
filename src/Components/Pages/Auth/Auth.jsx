@@ -14,7 +14,7 @@ const Auth = () => {
       <div className={classes.auth}>
         <div className={classes.logo}>
           <Link to="/" className={classes.link}>
-            LOGO
+            SKYPARKING
           </Link>
         </div>
         <div className={classes.input}>

@@ -1,37 +1,46 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Slider } from "@mui/material";
+
+import MyButton from "../../UI/MyButton/MyButton";
 
 import classes from "./SAdminGrid.module.scss";
-import { Slider } from "@mui/material";
-import MyButton from "../../UI/MyButton/MyButton";
-import { useDispatch, useSelector } from "react-redux";
-import { addColumns, addItems, addRows } from "../../../store/action";
 
 const SAdminGrid = () => {
   const [width, setWidth] = useState(1);
   const [height, setHeight] = useState(1);
+
   const arr = Array.from(Array(width * height).keys());
 
-  const dispatch = useDispatch();
-
   const items = useSelector((state) => state.newParkReducer.PARKING);
+  const navigate = useNavigate();
 
-  const addParkItems = () => {
-    let ParkItems = [];
-    for (let i = 1; i <= width * height; i++) {
-      ParkItems.push({
-        id: uuidv4(),
-        name: i,
-        isBooked: false,
-        blocked: false,
+  async function postPark() {
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const formData = new FormData();
+    formData.append("Name", items[0].name);
+    formData.append("Adress", items[0].address);
+    formData.append("Row", width);
+    formData.append("Column", height);
+    formData.append("Image", items[0].image);
+    await axios
+      .post("https://localhost:7114/api/parkings/parks", formData, config)
+      .then((response) => {
+        alert("Успешно");
+        const id = response.data.parkId;
+        navigate(`/newparking/settingpark/${id}`);
+      })
+      .catch(() => {
+        alert("Ошибка");
       });
-    }
-    const id = items[items.length - 1].id;
-    dispatch(addItems({ items: ParkItems, id: id }));
-    dispatch(addRows({ rows: width, id: id }));
-    dispatch(addColumns({ columns: height, id: id }));
-  };
+  }
 
   return (
     <div className={classes.main_container}>
@@ -63,13 +72,13 @@ const SAdminGrid = () => {
               max={10}
             />
           </div>
-          <MyButton onClick={addParkItems} children={"Сохранить"} />
+
+          <MyButton onClick={postPark} children={"Далее"} />
         </div>
         <div className={classes.right_container}>
           <div
             className={classes.constructor}
             style={{
-              /* gridTemplateRows: "repeat(height,1fr)",*/
               gridTemplateColumns: "repeat(" + height + ",1fr)",
               gridTemplateRows: "repeat(" + width + " ,1fr)",
             }}

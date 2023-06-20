@@ -7,51 +7,59 @@
 }
 
 .container {
-  width: 50%;
-  height: 700px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.preview {
-  width: 50%;
-  height: 800px;
+.form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 20%;
 }
 
 .image {
-  height: 65%;
-  width: 80%;
+  width: 100%;
+  height: 91%;
+  border: white 1px solid;
+  border-radius: 10px;
+}
+
+.text_drop {
+  display: flex;
+  position: sticky;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
   width: 100%;
-  height: 20%;
+  height: 10%;
   font-size: 25px;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: start;
   font-family: 'Bellota', cursive;
 }
 
 .container_drop {
-  width: 100%;
-  height: 80%;
+  width: 45%;
+  height: 43%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-
-
 .drop_area {
-  width: 65%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   border: #a6a6a6 dashed 5px;
   border-radius: 15px;
   display: flex;
@@ -59,13 +67,13 @@
   align-items: center;
   color: #a6a6a6;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
 }
 
 .drop_area_done {
-  width: 65%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   border: #6ccac7 dashed 5px;
   border-radius: 15px;
   display: flex;
@@ -74,6 +82,6 @@
   color: #a6a6a6;
   font-size: 20px;
   background: #effff9;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 

@@ -35,7 +35,7 @@ const Mmap = () => {
             modules={["geoObject.addon.balloon"]}
             defaultGeometry={[57.77997, 40.925]}
             properties={{
-              balloonContentBody: "Ебать тут еще одна",
+              balloonContentBody: "Парковка!",
             }}
           />
           <SearchControl />

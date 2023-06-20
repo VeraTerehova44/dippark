@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
+import axios from "axios";
+
 import MyButton from "../UI/MyButton/MyButton";
 import MyInput from "../UI/MyInput/MyInput";
-
-import classes from "./Authorization.module.scss";
-
 import ModalWindow from "../Modal/ModalWindow";
 
-import axios from "axios";
-import { Navigate } from "react-router-dom";
+import classes from "./Authorization.module.scss";
 
 const Authorization = () => {
   const [email, setEmail] = useState();
@@ -24,6 +22,7 @@ const Authorization = () => {
         alert("Успешно!");
         localStorage.setItem("role", response.data.role);
         localStorage.setItem("token", response.data.token);
+        window.location.reload();
       })
       .catch((error) => {
         setTitle("Неверный логин или пароль");
@@ -48,7 +47,7 @@ const Authorization = () => {
         <MyInput
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          type="text"
+          type="password"
           placeholder="Введите пароль"
         />
       </div>

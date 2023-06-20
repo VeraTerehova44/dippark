@@ -1,6 +1,8 @@
 import React from "react";
+import propTypes from "prop-types";
 
 import classes from "./Youcancard.module.scss";
+
 const Youcancard = ({ header, text, image }) => {
   return (
     <div className={classes.container}>
@@ -15,6 +17,12 @@ const Youcancard = ({ header, text, image }) => {
       </div>
     </div>
   );
+};
+
+Youcancard.propTypes = {
+  header: propTypes.string,
+  text: propTypes.string,
+  image: propTypes.string,
 };
 
 export default Youcancard;

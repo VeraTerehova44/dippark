@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
 
-import classes from "./Registartion.module.css";
 import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
-import axios from "axios";
+
+import classes from "./Registartion.module.css";
 
 const Registration = () => {
   const [login, setLogin] = useState();
@@ -17,13 +18,11 @@ const Registration = () => {
         password: password,
         confirmPassword: confirmPass,
       })
-      .then((response) => {
+      .then(() => {
         alert("Вы успешно зарегистрированы!");
-        console.log(response);
       })
-      .catch((error) => {
+      .catch(() => {
         alert("Что-то пошло не так(");
-        console.log(error);
       });
   }
 

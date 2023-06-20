@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import AppRouter from "./Components/AppRouter";
+import AppRouter from "./Router/AppRouter";
 import "./App.css";
 
 import { store } from "./store";

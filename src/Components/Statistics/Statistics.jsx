@@ -1,6 +1,7 @@
 import React from "react";
 
 import classes from "./Statistics.module.scss";
+import propTypes from "prop-types";
 
 const Statistics = ({ number, description }) => {
   return (
@@ -9,6 +10,11 @@ const Statistics = ({ number, description }) => {
       <div className={classes.description}>{description}</div>
     </div>
   );
+};
+
+Statistics.propTypes = {
+  number: propTypes.number,
+  description: propTypes.string,
 };
 
 export default Statistics;
